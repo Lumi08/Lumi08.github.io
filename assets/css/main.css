@@ -210,6 +210,30 @@ input, select, textarea {
 		clear: both;
 	}
 
+	code {
+		background: rgba(0, 0, 0, 0.035);
+		font-family: "Courier New", monospace;
+		font-size: 0.7em;
+		margin: 0 0.25em;
+		padding: 0.25em 0.65em;
+		align-content: stretch;
+	}
+
+	pre {
+		-webkit-overflow-scrolling: touch;
+		font-family: "Courier New", monospace;
+		font-size: 0.9em;
+		margin: 0 0 2em 0;
+	}
+
+		pre code {
+			display: block;
+			line-height: 1.5;
+			padding: 1em 1.5em;
+			overflow-x: auto;
+			text-align: left;
+		}
+
 /* Container */
 
 	.container {
@@ -1794,7 +1818,7 @@ input, select, textarea {
 /* List */
 
 	ul {
-		list-style: disc;
+		list-style: none;
 		padding-left: 1em;
 	}
 
@@ -1985,14 +2009,20 @@ input, select, textarea {
 	}
 
 		.item header {
-			background: #fff;
+			background: #cbd0fc;
 			margin: 0;
 			padding: 1em 0 1em 0;
 			font-size: 0.8em;
 		}
 
+		.item p{
+			background: #e1d2fa;
+			color: #000000;
+		}
+
 			.item header h3 {
-				font-size: 1em;
+				font-size: 1.2em;
+				font-weight: bold;
 			}
 
 /* Icons */
@@ -2241,7 +2271,7 @@ input, select, textarea {
 					}
 
 			#main > section.cover {
-				padding: 10em 0;
+				padding: 4em 0;
 				background-size: cover;
 				background-position: center center;
 			}
@@ -2252,7 +2282,7 @@ input, select, textarea {
 			}
 
 			#main > section.two {
-				background-color: #f5fafa;
+				background-color: #f7f5f0;
 			}
 
 			#main > section.three {
@@ -2261,6 +2291,11 @@ input, select, textarea {
 
 			#main > section.four {
 				background-color: #e8edec;
+			}
+
+			#main > section.generic {
+				background-color: #ffffff;
+				text-align: left;
 			}
 
 /* Wide */

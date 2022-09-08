@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Super Mario - Ryan Goldsmith</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+		<div id="header">
+
+			<div class="top">
+
+				<!-- Logo -->
+				<div id="logo">
+					<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
+					<h1 id="title">Ryan Goldsmith</h1>
+					<p>Student - BSc Computer Games Programming</p>
+				</div>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html#portfolio" id="back-link"><span class="icon solid fa-arrow-left">Back to Portfolio</span></a></li>
+						<li><a href="#top" id="top-link"><span class="icon solid fa-bug">Super Mario</span></a></li>
+						<li><a href="#description" id="portfolio-link"><span class="icon solid fa-check">Project Overview</span></a></li>
+						<li><a href="#codesnippets" id="about-link"><span class="icon solid fa-code">Code Snippets</span></a></li>
+						<li><a href="#githubbutton" id="github-link"><span class="icon brands fa-github">GitHub Repository</span></a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="bottom">
+				<!-- Social Icons -->
+				<ul class="icons">
+					<li><a href="https://twitter.com/RGoldsmith429" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="https://github.com/ryangoldsmith" class="icon brands fa-github"><span class="label">Github</span></a></li>
+					<li><a href="https://uk.linkedin.com/in/ryan-goldsmith-5b7974194" class="icon brands fa-linkedin"><span class="label">Linked-in</span></a></li>
+				</ul>
+
+			</div>
+
+		</div>
+
+	<!-- Main -->
+		<div id="main">
+
+			<!-- Intro -->
+			<section id="top" class="one dark cover">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/SuperMario/ProjectThumbnail.png" alt="" /></a>
+							<br>
+							<a class="image fit"><img src="images/SuperMario/TopBanner.png" alt="" /></a>
+						</div>
+								
+						<div class="col-6 col-12-mobile">
+							<header>
+								<h3>Super Mario</h3>
+							</header>
+							<p>> Recreation of Super Mario bros using the SDL libraries.<br>
+								> My Hand-in for Games Engine Creation Assignment
+							</p>
+							<br>
+							<br>
+							<a href="#description" class="button scrolly">Learn More</a>
+							<br>
+							<br>
+							<a href="github.com/ryangoldsmith/supermario" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Project Description -->
+			<section id="description" class="two">
+				<div class="container">
+					<h3>Project Overview</h3>
+					<p>
+						Super Mario was my Level 4 Games Engine Creation project for semester 2. Our task was to try and create the original
+						<a href="https://en.wikipedia.org/wiki/Mario_Bros." target="_blank">Mario Bros(Wikipedia)</a>
+						using the <a href="https://www.libsdl.org/" target="_blank">SDL</a> libraries. However I wanted to push myself
+						so i set myself out to create Super Mario which would also achieve me the top marks for additional features.
+					</p>
+					<p>
+						Super Mario has much more complex features than Mario Bros so this allowed me to achieve 100% on this assignment.
+						This project was my first complex project where I had to create classes and methods to handle textures sounds and
+						basic rendering for the game. Throughout the project I learnt alot about how a basic games engine could be created
+						and how certain functions are repeatedly used like drawing a sprite for example. Below are some of the main features
+						of the game i believe are worth noting as these features got me the additional marks.
+					</p>
+				</div>
+			</section>
+
+		<!-- Code Snippets -->
+			<section id="codesnippets" class="generic">
+				<div class="container">
+					<header>
+						<h2>Code Snippets / Screenshots</h2>
+					</header>
+					<h3>Camera Movement</h3>
+					<p>
+						Since Super Mario has a moving camera this meant I had to render everything in respect to where the camera. After
+						implimenting a camera parameter to my Texture2D.Draw() and did the calculations to render object in the correct place
+						everything came together quite easily until the camera would only follow mario when playing multiplayer.
+						To solve this i took the center points of both players and put the camera in the middle point and then stopped the players
+						from walking off the screen. Below are some tweets I made demonstrating the camera.
+					</p>
+					<div class="row">
+						<div class="col-6 col-12-small">
+							<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">After Implementing the Camera for my Uni C++ <a href="https://twitter.com/hashtag/SuperMario?src=hash&amp;ref_src=twsrc%5Etfw">#SuperMario</a> project I have now got the background to move with the camera. <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a> <a href="https://twitter.com/hashtag/gameprogramming?src=hash&amp;ref_src=twsrc%5Etfw">#gameprogramming</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://twitter.com/hashtag/cpp?src=hash&amp;ref_src=twsrc%5Etfw">#cpp</a> <a href="https://twitter.com/hashtag/retrogames?src=hash&amp;ref_src=twsrc%5Etfw">#retrogames</a> <a href="https://twitter.com/hashtag/gamedevelopment?src=hash&amp;ref_src=twsrc%5Etfw">#gamedevelopment</a> <a href="https://t.co/ZSkCLXlzoD">pic.twitter.com/ZSkCLXlzoD</a></p>&mdash; Ryan (@RGoldsmith429) <a href="https://twitter.com/RGoldsmith429/status/1237760371009769474?ref_src=twsrc%5Etfw">March 11, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+						</div>
+						<div class="col-6 col-12-small">
+							<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Just an update on my uni project, I have added some support for multiplayer (on the same keyboard). The camera now centers between the 2 characters <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a> <a href="https://twitter.com/hashtag/gameprogramming?src=hash&amp;ref_src=twsrc%5Etfw">#gameprogramming</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://twitter.com/hashtag/cpp?src=hash&amp;ref_src=twsrc%5Etfw">#cpp</a> <a href="https://twitter.com/hashtag/retrogames?src=hash&amp;ref_src=twsrc%5Etfw">#retrogames</a> <a href="https://twitter.com/hashtag/gamedevelopment?src=hash&amp;ref_src=twsrc%5Etfw">#gamedevelopment</a> <a href="https://t.co/X5GEAx21Ua">pic.twitter.com/X5GEAx21Ua</a></p>&mdash; Ryan (@RGoldsmith429) <a href="https://twitter.com/RGoldsmith429/status/1246881026921713665?ref_src=twsrc%5Etfw">April 5, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+						</div>
+					</div>
+					<pre><code>...
+void GameScreenLevel1::CameraMovementLogic()
+{
+	//Two Players
+	if (mPlayers.size() == 2)
+	{
+		if (mPlayers.size() == 2)
+		{
+			if (mPlayers[0]->GetX() > mPlayers[1]->GetX())
+			{
+				mCamera->x = (mPlayers[1]->GetX() + (mPlayers[1]->GetHitbox()->w / 2) 
+					+ ((mPlayers[0]->GetX() - mPlayers[1]->GetX())) / 2) - (mCamera->w / 2);
+			}
+			else
+			{
+				mCamera->x = (mPlayers[0]->GetX() + (mPlayers[0]->GetHitbox()->w / 2) 
+					+ ((mPlayers[1]->GetX() - mPlayers[0]->GetX())) / 2) - (mCamera->w / 2);
+			}
+		}
+	}
+	//Single Player
+	else
+	{
+		mCamera->x = mPlayers[0]->GetX() - (SCREEN_WIDTH / 2);
+	}
+
+	//Stop camera going past world boundaries
+	if (mCamera->x < 0)
+	{
+		mCamera->x = 0;
+	}
+	if (mCamera->y < 0)
+	{
+		mCamera->y = 0;
+	}
+	if (mCamera->x + mCamera->w > mMapTileWidth* DEFAULTTILEWIDTH* RENDERSCALE)
+	{
+		mCamera->x = (mMapTileWidth * DEFAULTTILEWIDTH * RENDERSCALE) - mCamera->w;
+	}
+	if (mCamera->y < mCamera->h)
+	{
+		mCamera->y = 0;
+	}
+}					</code></pre>
+
+					<h3>Map Loading</h3>
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<p>
+								Each level is stored within a .txt file which is loaded in when the level is being loaded and all the objects are being placed into the correct places.
+								Having a txt loaded allowed me to debug my game very quickly as I could move a object I wished to debug closer to my character, also if I had more time
+								It would be easier to add a tile based map editor which would save in txt format.
+								<br>
+								Also having a txt file allowed me to see the map within the txt file and made it much quicker for me to recreate some of the original mario levels without
+								having to set the exact positions or each object manually. Also using a txt file allowed me to create smaller methods to correct certain objects to make them look correct in game.
+								An example of this is the pipes. The pipes position is symbolised as a 'p' in the text file and the texture of the pipe is corrected dependant on adjacent tiles, as shown in the image on the right.
+							</p>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/SuperMario/PipeExample.png" alt="" /></a>
+						</div>
+
+						<h3>Bricks & Power-Ups</h3>
+						<div class="row">
+							<div class="col-6 col-12-small">
+								<blockquote class="twitter-tweet"><p lang="en" dir="ltr">For my C++ <a href="https://twitter.com/hashtag/SuperMario?src=hash&amp;ref_src=twsrc%5Etfw">#SuperMario</a> remake I today got brick bouncing to work <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a> <a href="https://twitter.com/hashtag/gameprogramming?src=hash&amp;ref_src=twsrc%5Etfw">#gameprogramming</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://twitter.com/hashtag/cpp?src=hash&amp;ref_src=twsrc%5Etfw">#cpp</a> <a href="https://twitter.com/hashtag/retrogames?src=hash&amp;ref_src=twsrc%5Etfw">#retrogames</a> <a href="https://twitter.com/hashtag/gamedevelopment?src=hash&amp;ref_src=twsrc%5Etfw">#gamedevelopment</a> <a href="https://t.co/XA91349T81">pic.twitter.com/XA91349T81</a></p>&mdash; Ryan (@RGoldsmith429) <a href="https://twitter.com/RGoldsmith429/status/1238136190106206208?ref_src=twsrc%5Etfw">March 12, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+							</div>
+							<div class="col-6 col-12-small">
+								<p>
+									In Super Mario there are powerups which have different effects on Mario, I implemented a mushroom and the fire flower however due to the lack of time I had with the project
+									I was unable to implement fire balls however the characters sprites change and when hit he will return to big Mario. Because of these powerups I needed
+									a way to spawn them into the game and allow the player to collect them so just like Super Mario I created bricks. These bricks work how they do in super mario where small
+									Mario cannot break bricks but can open '?' blocks and big mario can break bricks.
+									<br>
+									As Shown in the tweet on the left there is support for multiplayer if a player is stood ontop of a brick. Also in the video you can see mario picking up power Ups.
+									To show a player is collecting a powerup i created a function which follows the 0.5 Cos(x) + 0.5 graph to create a smooth fade as opposed to a flash. Below shows the function in code:
+								</p>
+							</div>
+						</div>
+
+						<pre><code>...
+void Player::FadeLogic()
+{
+	if (mFading)
+	{
+		float result = ((0.5 * cos(mFadeDegrees * 3.14159265 / 180.0)) + 0.5) * 255;
+		mFadeDegrees += 0.5;
+
+		if (mFadeTime > 500 && mFadeDegrees >= 360)
+		{
+			mFading = false;
+			mFadeTime = 0;
+			mInvunerable = false;
+		}
+		else
+		{
+			SDL_SetTextureAlphaMod(mTexture->GetTexture(), result);
+			mFadeTime++;
+		}
+
+		if (mFadeDegrees >= 360.0)
+		{
+			mFadeDegrees = 0.0;
+		}
+	}
+}
+						</code></pre>
+						<div class="container">
+							<p>I am happy to go into further detail for this or any projects on my portfolio if needs be.</p>
+							<a href="https://github.com/ryangoldsmith/supermario" id="githubbutton" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- Footer 
+			<div id="footer">
+
+				
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</div>
+		-->
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
