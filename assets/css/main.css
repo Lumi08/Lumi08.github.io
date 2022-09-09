@@ -1794,6 +1794,17 @@ input, select, textarea {
 			width: 100%;
 		}
 
+		.image.fitfade {
+			display: block;
+			width: 100%;
+			opacity: 0.6;
+			transition: .5s ease;
+		}
+		
+			.image.fitfade:hover{
+				opacity: 1;
+			}
+
 		.image.featured {
 			display: block;
 			width: 100%;
