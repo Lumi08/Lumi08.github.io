@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Pac-Man - Ryan Goldsmith</title>
+		<title>Dragentor - Ryan Goldsmith</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -22,14 +22,14 @@
 				<div id="logo">
 					<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
 					<h1 id="title">Ryan Goldsmith</h1>
-					<p>Student - BSc Computer Games Programming</p>
+					<p>BSc(Hons) Computer Games Programming</p>
 				</div>
 
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html#portfolio" id="back-link"><span class="icon solid fa-arrow-left">Back to Portfolio</span></a></li>
-						<li><a href="#top" id="top-link"><span class="icon solid fa-bug">Pac-Man</span></a></li>
+						<li><a href="#top" id="top-link"><span class="icon solid fa-bug">Dragentor</span></a></li>
 						<li><a href="#description" id="portfolio-link"><span class="icon solid fa-check">Project Overview</span></a></li>
 						<li><a href="#codesnippets" id="about-link"><span class="icon solid fa-code">Code Snippets</span></a></li>
 						<li><a href="#githubbutton" id="github-link"><span class="icon brands fa-github">GitHub Repository</span></a></li>
@@ -50,208 +50,239 @@
 		</div>
 
 	<!-- Main -->
-		<div id="main">
+	<div id="main">
 
-			<!-- Intro -->
-			<section id="top" class="one dark cover">
-				<div class="container">
+		<!-- Intro -->
+		<section id="top" class="one dark cover">
+			<div class="container">
 
-					<div class="row">
-						<div class="col-6 col-12-mobile">
-							<a class="image fit"><img src="images/Pacman/ProjectThumbnail.png" alt="" /></a>
+				<div class="row">
+					<div class="col-6 col-12-mobile">
+						<a class="image fit"><img src="images/Dragentor/MainMenu.png" alt="" /></a>
+						<a class="image fit"><img src="images/Dragentor/Thumbnail.png" alt="" /></a>
+						<br>
+					</div>
+							
+					<div class="col-6 col-12-mobile">
+						<header>
+							<h3>Dragentor</h3>
+						</header>
+						<p>Dragentor is a tower defense game which my group decided to create for our Level 5 Technical Games Production Assignment
 							<br>
-						</div>
-								
-						<div class="col-6 col-12-mobile">
-							<header>
-								<h3>Pac-Man</h3>
-							</header>
-							<p>> Recreation of Pac-Man using the S2D libraries - Provided by Staffordshire University.<br>
-								> My Hand-in for Fundamentals of Game and Graphical Systems Assignment
-							</p>
-							<br>
-							<br>
-							<a href="#description" class="button scrolly">Learn More</a>
-							<br>
-							<br>
-							<a href="https://github.com/ryangoldsmith/pacman" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
-						</div>
+							Our task was to create a game as a team and overall testing our ability to work as a team to achieve a functioning game by the deadline
+						</p>
+						<strong>Unfortunately, I am not the leader of the project and do not have the permissions to make the repository public however I will leave the link here in the case it is ever turned public</strong>
+						<br>
+						<a href="#description" class="button scrolly">Learn More</a>
+						<br>
+						<br>
+						<a href="https://github.com/code-damage/TGPGame" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
 					</div>
 				</div>
-			</section>
+			</div>
+		</section>
 
-		<!-- Project Description -->
-			<section id="description" class="two">
-				<div class="container">
-					<h3>Project Overview</h3>
-					<p>
-						Pac-Man was my level 4 Fundamentals of Game and Graphical System Development project for semester 1.
-						Our task was to create a very simple version of Pac-Man using the S2D libraries provided to
-						us by Staffordshire University. To pass the module the bare minimum was to have a moving Pac-Man
-						with simple animations which could move around an empty space collecting munchies while avoiding ghosts.
-						However, to achieve higher marks you must add further features into the game to represent the original Pac-Man.
-					</p>
-					<h3>Additional Features - Achieve Higher Marks</h3>
-					<ul>
-						<li>> More Advanced Pac-Man Movement</li>
-						<li>> Title Screen</li>
-						<li>> Walls</li>
-						<li>> Collisions with Walls</li>
-						<li>> Connected Wall Textures</li>
-					</ul>
+	<!-- Project Description -->
+		<section id="description" class="two">
+			<div class="container">
+				<h3>Project Overview</h3>
+				<p>
+					As this project was a group project not all of the project is my work and I will outline the features I added on my own and the parts of the project I helped and created with other members of the team
+					<br>
+					The main feature which I added was everything to do with the enemies within the game. From their models, to the logic for them spawning.
+				</p>
+				<h3>My Contributions</h3>
+				<ul>
+					<li>> Enemy models</li>
+					<li>> Enemy AI</li>
+					<li>> Enemy Spawning </li>
+					<li>> Enemy Manager</li>
+					<li>> Tower AI</li>
+				</ul>
+				<p>Overall there are a lot of smaller parts I have contributed to as I very much enjoy working with others to solve issues they or I may stumble upon along the way.</p>
+			</div>
+		</section>
+
+	<!-- Code Snippets -->
+		<section id="codesnippets" class="generic">
+			<div class="container">
+				<header>
+					<h2>Code Snippets / Screenshots</h2>
+				</header>
+				<h3>Enemies</h3>
+				<div class="row">
+					<div class="col-6 col-12-mobile">
+						<p>The basic idea of enemies within the game is that they spawn from 3 different spawn points which are set up from the map, 
+							they path find their way to the users base and attack the base from a given range.
+							<br> As the game was created in unity I created prefabs for enemies and a enemy object so adding more enemies was much easier and makes the code easier to manage.
+							Because of the way I programmed the enemies I was able to create 4 different enemy types fairly quickly and have them working in the game.
+							<br> I created Orks and these Orks had 4 different troops, a Warrior, an Archer, and a Mage as shown to the right.
+						</p>
+					</div>
+					<div class="col-6 col-12-mobile">
+						<a class="image fit"><img src="images/Dragentor/Orks.jpg" alt="" /></a>
+					</div>
 				</div>
-			</section>
 
-		<!-- Code Snippets -->
-			<section id="codesnippets" class="generic">
-				<div class="container">
-					<header>
-						<h2>Code Snippets / Screenshots</h2>
-					</header>
-					<h3>Movement</h3>
-					<p>Pac-Man is able to move via keyboard inputs using WASD, a small issue arose early into the project
-							where Pac-Man would stutter while moving as the game would have to check if the key was down every tick.
-							However, Pac-Man is supposed to move continuously in one direction until told otherwise or he hits a wall.
-							To solve this, I created a Enum which stored which direction Pac-Man would be moving. However, to make
-							movement more advanced I created a system to store the next keyboard input and move Pac-Man when he is
-							next allowed to do so. This also solved very smaller issues like Pac-Man being 32px x 32px and each
-							tile being 32px x 32px meaning a user would have to be pixel perfect to move between walls while with
-							this system it would move Pac-Man perfectly when a space is detected in the direction the person wishes to go.
-					</p>
-					<pre><code>enum Direction
-{
-	LEFT,
-	RIGHT,
-	UP,
-	DOWN,
-	STOP
-};
+				<div class="row">
+					<div class="col-6 col-12-mobile">
+						<pre><code>using UnityEngine;
 
-Direction currentDirection;
-Direction nextDirection;</code></pre>
-						<pre><code>
-Pacman::Tick()
+[CreateAssetMenu(menuName = "Enemy/EnemyObject")]
+public class EnemyObject_SO : ScriptableObject
 {
-	MovementLogic();
-	.....
+	public GameObject enemyPrefab;
+	public float damage;
+	public float maximumHealth;
+	public float currentHealth;
+	public float movementSpeed;
+	public float attackRange;
+	public int bounty;
+}</code></pre>
+					</div>
+					<div class="col-6 col-12-mobile">
+						<h3>Enemy Object</h3>
+						<p>
+							As the project used unity I found some methods of allowing for better coding practice and it also fit with the coding style of the others in my group.
+							As stated before this object allowed us to make enemies and import them into the game much quicker as ever enemy needs to have specific values which are stated within this object.
+						</p>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-6 col-12-mobile">
+						<h3>Enemy AI</h3>
+						<p>
+							The enemies need to have a way to path-find to the players base and to do this a navMesh is placed onto the map and our enemies are set as navMeshAgents, this allows us to set the 
+							destination and the enemies with use the NavMesh to get to their destination. The other AI element added is when the enemies should attack the users base. This is done by using 
+							a variable called attackRange which stores the rage the enemies can attack from, fro example a archer is a ranged unit while a warrior is a melee unit and we should factor this 
+							into our game.
+						</p>
+					</div>	
+					<div class="col-6 col-12-mobile">
+						<pre><code>private void Update()
+{
+	if (navMeshAgent.remainingDistance 
+	<= enemyObject.attackRange && navMeshAgent.hasPath)
+	{
+		if (!isAttacking)
+		{
+			//Within attack range of destination
+			//Debug.Log("Attacking");
+			OnEnemyAttackingEvent.Raise(gameObject);
+			navMeshAgent.isStopped = true;
+			isAttacking = true;
+		}
+	}
+}
+						</code></pre>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-6 col-12-mobile">
+						<pre><code>private void SpawningLogic()
+{
+	if (countdown <= 0f)
+	{
+		if (!hasWaveStarted)
+		{
+			//Wave Start
+			Debug.Log("Wave Start");
+			onEnemyWaveStartEvent.Raise(waveNumber);
+			hasWaveStarted = true;
+		}
+
+		if (!SpawnWave())
+		{
+			hasWaveStarted = false;
+			//Wave Finished Spawning Enemies
+			countdown = timeBetweenWaves;
+		}
+	}
+	else
+	{
+		countdown -= Time.deltaTime;
+	}
 }
 
-void Pacman::MovementLogic()
+private bool SpawnWave()
 {
-	//Moving right
-	if (keyboardState->IsKeyDown(Input::Keys::D))
-	{
-		nextDirection = RIGHT;
-	}
-	//Moving down
-	else if (keyboardState->IsKeyDown(Input::Keys::S))
-	{
-		nextDirection = DOWN;
-	}
-	//Moving left
-	else if (keyboardState->IsKeyDown(Input::Keys::A))
-	{
-		nextDirection = LEFT;
-	}
-	//Moving up
-	else if (keyboardState->IsKeyDown(Input::Keys::W))
-	{
-		nextDirection = UP;
-	}
-}						</code></pre>
-						<h3>Title Screen</h3>
-						
-						<div class="row">
-							<div class="col-6 col-12-mobile">
-								<p>Most games have a physical title screen where the user clicks play to
-									play the game allowing them to prepare for when the game starts as opposed
-									to running a game and having to be prepared as soon as all the loading has
-									completed to play the game. Because of this I decided to create a very simple
-									title screen which composes of two buttons, one for play and one for exit, and
-									a simple title. For the title screen I created a struct for the buttons and added
-									features like when the button has been hovered over and when it has been clicked to
-									allow me to perform logic to change screen or show a hovering icon over the button
-									as shown in the screenshot to the right.</p>
-							</div>
-							<div class="col-6 col-12-mobile">
-								<a class="image fit"><img src="images/Pacman/TitleScreen.png" alt="" /></a>
-							</div>
-						</div>
+	bool result = true;
 
-						<h3>Walls</h3>
-						<div class="row">
-							<div class="col-6 col-12-mobile">
-								<a class="image fit"><img src="images/Pacman/OriginalWalls.png" alt="" /></a>
-							</div>
-							<div class="col-6 col-12-mobile">
-								<p>
-									Walls are a key part in Pac-Man as a wall limits where the player can go.
-									This ultimately can make the game harder or easier depending on how a map
-									is created using these walls. Each wall has a x, y, width, height and texture
-									value therefore I made a class to handle each wall as there would be multiple.
-									Due to the game being tile based and being loaded in from a text file each
-									wall will have the same width and height due to it being a tile map.
-									The way the walls originally looked when each wall had been loaded in did
-									not look very good (shown in image to left). This then led me to create a
-									function which would check the current walls adjacent tiles and change the
-									texture to create a much better-looking wall using connecting textures.
-								</p>
-							</div>
-						</div>
-						<pre><code>void MapLoader::FixWallTexture(Wall* wall, int i, int j)
-{
-	bool wallAbove = false,
-		wallBelow = false,
-		wallLeft = false,
-		wallRight = false;
-
-	if (mapArray[i - 1][j] == '#')
+	if(spawnDelayCounter <= 0f)
 	{
-		wallAbove = true;
-	}
-
-	if (mapArray[i + 1][j] == '#')
-	{
-		wallBelow = true;
-	}
-
-	if (j != 0)
-	{
-		if (mapArray[i][j - 1] == '#')
+		SpawnEnemy();
+		tempListEnemiesToSpawn++;
+		spawnDelayCounter = spawnDelay;
+		if (tempListEnemiesToSpawn >= enemiesToSpawn)
 		{
-			wallLeft = true;
+			//Finished Spawning Enemies
+			Debug.Log("Wave End");
+			onEnemyWaveEndEvent.Raise(new Void());
+			result = false;
+			tempListEnemiesToSpawn = 0;
 		}
 	}
-
-	if (j != MAPTILEDWIDTH-1)
-		{
-			if (mapArray[i][j + 1] == '#')
-			{
-				wallRight = true;
-			}
-		}
-
-	//Change the texture dependant on which walls are where
-	if (wallAbove && wallBelow && wallRight && wallLeft)
+	else
 	{
-		wall->setTexture("Textures/Wall/WallCross.png");
+		spawnDelayCounter -= Time.deltaTime;
 	}
-
-	else if (wallAbove && !wallBelow && wallRight && wallLeft)
-	{
-		wall->setTexture("Textures/Wall/WallDownT.png");
-	}
-	... // More logic for each combination of adjacent walls
-}						</code></pre>
+	
+	return result;
+}					</code></pre>
+					</div>
 					
-						<div class="container">
-							<p>I am happy to go into further detail for this or any projects on my portfolio if needs be.</p>
-							<a href="https://github.com/ryangoldsmith/pacman" id="githubbutton" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
-						</div>
+					<div class="col-6 col-12-mobile">
+						<h3>Enemy Spawning / Manager</h3>
+						<p>
+							As the game is a tower defense the enemies must spawn in waves, to do this I created a EnemyManager Script which handles all of this logic.
+							The enemies spawn at the start of a wave then a countdown is reset til the next wave, to keep the game difficult the amount of enemies spawned 
+							increases with each wave and after a set number of waves a boss enemy will spawn.
+						</p>
+					</div>
+				</div>	
+				
+				<div class="row">
+					<div class="col-6 col-12-mobile">
+						<h3>Tower AI</h3>
+						<p>
+							Due to the towers needing to shoot the enemies I worked quite closely with the person programming the towers, there were originally a few issue 
+							with how we should allow the towers to target the enemies as our initial methods were rather slow and inefficient. However, in the end we utilised 
+							our events system to request the data from the manager.
+						</p>
+					</div>
+					<div class="col-6 col-12-mobile">
+						<pre><code>public void OnPollEnemiesListener()
+{
+	Vector3[] tempArray = new Vector3[enemyList.Count];
+	for (int i = 0; i < tempArray.Length; i++)
+	{
+		tempArray[i] = enemyList[i].gameObject.transform.position;
+	}
+
+	sendEnemyVector3ArrayEvent.Raise(tempArray);
+}
+						</code></pre>
 					</div>
 				</div>
-			</section>
-		</div>
+				<br>
+				<div class="row">
+					<div class="col-6 col-12-mobile">
+						<a class="image fit"><img src="images/Dragentor/Dragentor1.png" alt="" /></a>
+					</div>
+					<div class="col-6 col-12-mobile">
+						<a class="image fit"><img src="images/Dragentor/Dragentor2.png" alt="" /></a>
+					</div>
+				</div>
+				<br>
+				<div class="container">
+					<p>I am happy to go into further detail for this or any projects on my portfolio if needs be.</p>
+					<a href="https://github.com/code-damage/TGPGame" id="githubbutton" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
+				</div>
+			</div>
+		</section>
+	</div>
 
 		<!-- Footer 
 			<div id="footer">
