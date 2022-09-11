@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Pac-Man - Ryan Goldsmith</title>
+		<title>TimothE - Ryan Goldsmith</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -29,7 +29,7 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html#portfolio" id="back-link"><span class="icon solid fa-arrow-left">Back to Portfolio</span></a></li>
-						<li><a href="#top" id="top-link"><span class="icon solid fa-bug">Pac-Man</span></a></li>
+						<li><a href="#top" id="top-link"><span class="icon solid fa-bug">TimothE</span></a></li>
 						<li><a href="#description" id="portfolio-link"><span class="icon solid fa-check">Project Overview</span></a></li>
 						<li><a href="#codesnippets" id="about-link"><span class="icon solid fa-code">Code Snippets</span></a></li>
 						<li><a href="#githubbutton" id="github-link"><span class="icon brands fa-github">GitHub Repository</span></a></li>
@@ -58,23 +58,20 @@
 
 					<div class="row">
 						<div class="col-6 col-12-mobile">
-							<a class="image fit"><img src="images/Pacman/ProjectThumbnail.png" alt="" /></a>
+							<a class="image fit"><img src="images/TimothE/Thumbnail.png" alt="" /></a>
 							<br>
 						</div>
 								
 						<div class="col-6 col-12-mobile">
 							<header>
-								<h3>Pac-Man</h3>
+								<h3>TimothE</h3>
 							</header>
-							<p>> Recreation of Pac-Man using the S2D libraries - Provided by Staffordshire University.<br>
-								> My Hand-in for Fundamentals of Game and Graphical Systems Assignment
-							</p>
-							<br>
-							<br>
+							<p>TimothE is the engine we created for the Group Game Development Project and Work Base Simulation Module Assignment, we then additionally 
+								created a game called "Timothy Needs To Die" using this engine.</p>
 							<a href="#description" class="button scrolly">Learn More</a>
 							<br>
 							<br>
-							<a href="https://github.com/ryangoldsmith/pacman" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
+							<a href="https://github.com/Timothy-Needs-to-Die/TimothE" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
 						</div>
 					</div>
 				</div>
@@ -85,20 +82,21 @@
 				<div class="container">
 					<h3>Project Overview</h3>
 					<p>
-						Pac-Man was my level 4 Fundamentals of Game and Graphical System Development project for semester 1.
-						Our task was to create a very simple version of Pac-Man using the S2D libraries provided to
-						us by Staffordshire University. To pass the module the bare minimum was to have a moving Pac-Man
-						with simple animations which could move around an empty space collecting munchies while avoiding ghosts.
-						However, to achieve higher marks you must add further features into the game to represent the original Pac-Man.
+						TimothE is the engine we created for the Group Game Development Project and Work Base Simulation Module Assignment, we then additionally 
+						created a game called "Timothy Needs To Die" using this engine.
+						<br>
 					</p>
-					<h3>Additional Features - Achieve Higher Marks</h3>
+					<h3>My Contributions</h3>
 					<ul>
-						<li>> More Advanced Pac-Man Movement</li>
-						<li>> Title Screen</li>
-						<li>> Walls</li>
-						<li>> Collisions with Walls</li>
-						<li>> Connected Wall Textures</li>
+						<li>> Engine - UI Elements</li>
+						<li>> Engine - Colliders</li>
+						<li>> Game - Farming System</li>
 					</ul>
+					<p>
+						The team for this project consisted of more people and therefore forced more teamwork, the features inside of the engine which I worked on also 
+						had other members of the team working on them, for example, I alone did not make all the UI elements for the game. However, the farming system within 
+						the game was solely done by me.
+					</p>
 				</div>
 			</section>
 
@@ -108,146 +106,169 @@
 					<header>
 						<h2>Code Snippets / Screenshots</h2>
 					</header>
-					<h3>Movement</h3>
-					<p>Pac-Man is able to move via keyboard inputs using WASD, a small issue arose early into the project
-							where Pac-Man would stutter while moving as the game would have to check if the key was down every tick.
-							However, Pac-Man is supposed to move continuously in one direction until told otherwise or he hits a wall.
-							To solve this, I created a Enum which stored which direction Pac-Man would be moving. However, to make
-							movement more advanced I created a system to store the next keyboard input and move Pac-Man when he is
-							next allowed to do so. This also solved very smaller issues like Pac-Man being 32px x 32px and each
-							tile being 32px x 32px meaning a user would have to be pixel perfect to move between walls while with
-							this system it would move Pac-Man perfectly when a space is detected in the direction the person wishes to go.
-					</p>
-					<pre><code>enum Direction
+
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<h3>UI Elements</h3>
+							<p>
+								As we worked as a team a lot of my contributions were helping others with debugging and making sure all the UI elements could work with each other. The 
+								main UI element I worked on solo were the buttons.
+								<br>
+								As our game mimicked the way in which Unity worked with adding components to game objects I made the button a component as it can be added to a UI GameObject.
+								Due to the nature of the module a lot of the work was with others and therefore I do not want to claim their code as my own within the portfolio.
+							</p>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<pre><code>class Button : public Component
 {
-	LEFT,
-	RIGHT,
-	UP,
-	DOWN,
-	STOP
+public:
+	Button(GameObject* parent);
+	~Button();
+
+	COMPONENT_STATIC_TYPE(Button_Type);
+
+	// Component Methods
+	void OnStart() override;
+	void OnUpdate() override;
+	void OnEnd() override;
+	void DrawEditorUI() override;
+
+	// OnClick management
+	void AddClickEvent(void (*function)());
+	void RemoveClickEvent(void (*function)());
+
+	// Getter & Setter
+	bool IsHovering() { return _isHovering; }
+	bool IsClicked() { return _isClicked; }
+
+private:
+	bool _isHovering;
+	bool _isClicked;
+
+	// OnClick Calls
+	vector<void(*)()> _onClickCalls;
+};
+							</code></pre>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<pre><code>class CircleColliderComponent : public ColliderBase
+{
+public:
+	CircleColliderComponent(GameObject* owner);
+
+
+	void OnStart() override;
+	void OnUpdate() override;
+	void OnEnd() override;
+
+	float GetRadius() const { return _radius; }
+	glm::vec2 GetPosition() const { return _position; }
+
+private:
+	float _radius;
+	
+	glm::vec2 _position;
+
 };
 
-Direction currentDirection;
-Direction nextDirection;</code></pre>
-						<pre><code>
-Pacman::Tick()
+class BoxColliderComponent : public ColliderBase		
 {
-	MovementLogic();
-	.....
-}
+public:
 
-void Pacman::MovementLogic()
-{
-	//Moving right
-	if (keyboardState->IsKeyDown(Input::Keys::D))
-	{
-		nextDirection = RIGHT;
+	COMPONENT_STATIC_TYPE(Collider)
+		
+	// Constructor & Deconstructor
+	BoxColliderComponent(GameObject* parent);
+	~BoxColliderComponent();
+
+	// Component Methods
+	void OnStart() override;
+	void OnUpdate() override;
+	void OnEnd() override;
+	virtual void DrawEditorUI() override;
+
+	// Getters & Setters
+	bool IsEnabled() { return _isEnabled; }
+	void SetEnabled(bool state) { _isEnabled = state; }
+
+	Rect* GetCollisionRect() { return _boxCollider; }
+
+	virtual bool SaveState(IStream& stream) const override {
+		Component::SaveState(stream);
+
+		WriteFloat(stream, _boxCollider->xPos);
+		WriteFloat(stream, _boxCollider->yPos);
+		WriteFloat(stream, _boxCollider->width);
+		WriteFloat(stream, _boxCollider->height);
+		WriteInt(stream, (int)_isEnabled);
+
+		return true;
 	}
-	//Moving down
-	else if (keyboardState->IsKeyDown(Input::Keys::S))
-	{
-		nextDirection = DOWN;
+	virtual bool LoadState(IStream& stream) override {
+		Component::LoadState(stream);
+
+		_boxCollider = new Rect(
+			ReadFloat(stream),
+			ReadFloat(stream),
+			ReadFloat(stream),
+			ReadFloat(stream));
+
+		_isEnabled = (bool)ReadInt(stream);
+
+		return true;
 	}
-	//Moving left
-	else if (keyboardState->IsKeyDown(Input::Keys::A))
-	{
-		nextDirection = LEFT;
-	}
-	//Moving up
-	else if (keyboardState->IsKeyDown(Input::Keys::W))
-	{
-		nextDirection = UP;
-	}
-}						</code></pre>
-						<h3>Title Screen</h3>
-						
-						<div class="row">
-							<div class="col-6 col-12-mobile">
-								<p>Most games have a physical title screen where the user clicks play to
-									play the game allowing them to prepare for when the game starts as opposed
-									to running a game and having to be prepared as soon as all the loading has
-									completed to play the game. Because of this I decided to create a very simple
-									title screen which composes of two buttons, one for play and one for exit, and
-									a simple title. For the title screen I created a struct for the buttons and added
-									features like when the button has been hovered over and when it has been clicked to
-									allow me to perform logic to change screen or show a hovering icon over the button
-									as shown in the screenshot to the right.</p>
-							</div>
-							<div class="col-6 col-12-mobile">
-								<a class="image fit"><img src="images/Pacman/TitleScreen.png" alt="" /></a>
-							</div>
+private:
+	bool _isEnabled;
+
+	Rect* _boxCollider;
+
+	// Editor UI
+	bool* _editorIsEnabled;
+};
+							</code></pre>
 						</div>
-
-						<h3>Walls</h3>
-						<div class="row">
-							<div class="col-6 col-12-mobile">
-								<a class="image fit"><img src="images/Pacman/OriginalWalls.png" alt="" /></a>
-							</div>
-							<div class="col-6 col-12-mobile">
-								<p>
-									Walls are a key part in Pac-Man as a wall limits where the player can go.
-									This ultimately can make the game harder or easier depending on how a map
-									is created using these walls. Each wall has a x, y, width, height and texture
-									value therefore I made a class to handle each wall as there would be multiple.
-									Due to the game being tile based and being loaded in from a text file each
-									wall will have the same width and height due to it being a tile map.
-									The way the walls originally looked when each wall had been loaded in did
-									not look very good (shown in image to left). This then led me to create a
-									function which would check the current walls adjacent tiles and change the
-									texture to create a much better-looking wall using connecting textures.
-								</p>
-							</div>
+						<div class="col-6 col-12-mobile">
+							<h3>Colliders</h3>
+							<p>
+								For the game we require colliders to detect collisions the code to the left shows the header files for the two different colliders I created for the engine.
+								These colliders are utilised in all of the collisions for the game and allows us to have functioning buttons and a functioning game. I utilised the colliders 
+								within the button class and within the farming system within the game. 
+								<br>
+								However as it was a group project we can see someone added a saving system to the engine which is not my code.
+							</p>
 						</div>
-						<pre><code>void MapLoader::FixWallTexture(Wall* wall, int i, int j)
-{
-	bool wallAbove = false,
-		wallBelow = false,
-		wallLeft = false,
-		wallRight = false;
-
-	if (mapArray[i - 1][j] == '#')
-	{
-		wallAbove = true;
-	}
-
-	if (mapArray[i + 1][j] == '#')
-	{
-		wallBelow = true;
-	}
-
-	if (j != 0)
-	{
-		if (mapArray[i][j - 1] == '#')
-		{
-			wallLeft = true;
-		}
-	}
-
-	if (j != MAPTILEDWIDTH-1)
-		{
-			if (mapArray[i][j + 1] == '#')
-			{
-				wallRight = true;
-			}
-		}
-
-	//Change the texture dependant on which walls are where
-	if (wallAbove && wallBelow && wallRight && wallLeft)
-	{
-		wall->setTexture("Textures/Wall/WallCross.png");
-	}
-
-	else if (wallAbove && !wallBelow && wallRight && wallLeft)
-	{
-		wall->setTexture("Textures/Wall/WallDownT.png");
-	}
-	... // More logic for each combination of adjacent walls
-}						</code></pre>
+					</div>
 					
-						<div class="container">
-							<p>I am happy to go into further detail for this or any projects on my portfolio if needs be.</p>
-							<a href="https://github.com/ryangoldsmith/pacman" id="githubbutton" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<h3>Farming System</h3>
+							<p>
+								We had development student plan what the game would be and as a programmer I worked on some of the elements they wanted within their game, 
+								the main system I worked on was farming, the idea was that farming would be the main way the player would generate income to buy upgrades and better tools
+								<br>
+								The way i created a farming system was to have a class called "CropPlot" a class called "PlantedCrop" and finally a manager called "FarmlandManager", 
+								The crop plot would be created when the user hoes the ground, the planted crop would be planted onto this crop plot, and the manager would manage all the crops.
+								This is the main controller to allow the player to plant crops, plant seeds, remove seeds, harvest grown crops, and to tell the crops when to grow to the next stage.
+								<br>
+								Finally to allow for easier editing of crops values we use CSV files so i had to create a method for loading in these CSVs so the crops know how long they should wait til being fully grown 
+							</p>
 						</div>
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/TimothE/ClassDiagram.png" alt="" /></a>
+						</div>
+					</div>
+					<a class="image fit"><img src="images/TimothE/Farming1.png" alt="" /></a>
+					<div class="container">
+						<p>
+							<br>
+							The way in which crops are brought was not the intention for the final product however due to time constraints, a team member was unable to add a shop system 
+							therefore I had to implement a simple way to get a final product for submission.
+							<br>
+							I am happy to go into further detail for this or any projects on my portfolio if needs be.</p>
+						<a href="https://github.com/Timothy-Needs-to-Die/TimothE" id="githubbutton" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
 					</div>
 				</div>
 			</section>
