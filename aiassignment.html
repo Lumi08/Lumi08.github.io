@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Pac-Man - Ryan Goldsmith</title>
+		<title>AI-Assignment - Ryan Goldsmith</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -29,10 +29,12 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html#portfolio" id="back-link"><span class="icon solid fa-arrow-left">Back to Portfolio</span></a></li>
-						<li><a href="#top" id="top-link"><span class="icon solid fa-bug">Ai Assignment</span></a></li>
+						<li><a href="#top" id="top-link"><span class="icon solid fa-bug">AI Assignment</span></a></li>
 						<li><a href="#description" id="portfolio-link"><span class="icon solid fa-check">Project Overview</span></a></li>
-						<li><a href="#codesnippets" id="about-link"><span class="icon solid fa-code">Code Snippets</span></a></li>
-						<li><a href="#githubbutton" id="github-link"><span class="icon brands fa-github">GitHub Repository</span></a></li>
+						<li><a href="#artificialLife" id="about-link"><span class="icon solid fa-fish">Artificial Life</span></a></li>
+						<li><a href="#decisionTheory" id="about-link"><span class="icon solid fa-chess">Decision Theory</span></a></li>
+						<li><a href="#neuralNetwork" id="about-link"><span class="icon solid fa-broadcast-tower">Neural Network</span></a></li>
+						<li><a href="#evolutionaryAlgorithms" id="about-link"><span class="icon solid fa-kiwi-bird">Evolutionary Algorithms</span></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -58,23 +60,26 @@
 
 					<div class="row">
 						<div class="col-6 col-12-mobile">
-							<a class="image fit"><img src="images/Pacman/ProjectThumbnail.png" alt="" /></a>
+							<a class="image fit"><img src="images/AiAssignment/Thumbnail.png" alt="" /></a>
 							<br>
 						</div>
 								
 						<div class="col-6 col-12-mobile">
 							<header>
-								<h3>Pac-Man</h3>
+								<h3>AI Assignment</h3>
 							</header>
-							<p>> Recreation of Pac-Man using the S2D libraries - Provided by Staffordshire University.<br>
-								> My Hand-in for Fundamentals of Game and Graphical Systems Assignment
-							</p>
+							<p>We were tasked to add AI to pre-made environments<br></p>
+							<ul>
+								<li>> Artificial Life</li>
+								<li>> Decision Theory</li>
+								<li>> Neural Network</li>
+								<li>> Evolutionary Algorithms</li>
+							</ul>
 							<br>
 							<br>
 							<a href="#description" class="button scrolly">Learn More</a>
 							<br>
 							<br>
-							<a href="https://github.com/ryangoldsmith/pacman" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
 						</div>
 					</div>
 				</div>
@@ -85,174 +90,572 @@
 				<div class="container">
 					<h3>Project Overview</h3>
 					<p>
-						Pac-Man was my level 4 Fundamentals of Game and Graphical System Development project for semester 1.
-						Our task was to create a very simple version of Pac-Man using the S2D libraries provided to
-						us by Staffordshire University. To pass the module the bare minimum was to have a moving Pac-Man
-						with simple animations which could move around an empty space collecting munchies while avoiding ghosts.
-						However, to achieve higher marks you must add further features into the game to represent the original Pac-Man.
+						For my Level 6 Ai Assignment we we're given 4 different applications and tasked to implement different AIs into each of the applications.
+						<ul>
+							<li>> Artificial Life - A simulation of how fish flock with each other and how a shark would disperse a flock.</li>
+							<li>> Decision Theory - Create a chess AI which would make intelligent moves and not blunder pieces - MinMax Algorithms</li>
+							<li>> Neural Network - Create a Neural Network to play "Flappy Bird"</li>
+							<li>> Evolutionary Algorithms - Create a genetic algorithm to play a tower defense game.</li>
+						</ul>
+						<br>
 					</p>
-					<h3>Additional Features - Achieve Higher Marks</h3>
-					<ul>
-						<li>> More Advanced Pac-Man Movement</li>
-						<li>> Title Screen</li>
-						<li>> Walls</li>
-						<li>> Collisions with Walls</li>
-						<li>> Connected Wall Textures</li>
-					</ul>
 				</div>
 			</section>
 
 		<!-- Code Snippets -->
-			<section id="codesnippets" class="generic">
+			<section id="artificialLife" class="generic">
 				<div class="container">
 					<header>
-						<h2>Code Snippets / Screenshots</h2>
+						<h2>Artificial Life</h2>
 					</header>
-					<h3>Movement</h3>
-					<p>Pac-Man is able to move via keyboard inputs using WASD, a small issue arose early into the project
-							where Pac-Man would stutter while moving as the game would have to check if the key was down every tick.
-							However, Pac-Man is supposed to move continuously in one direction until told otherwise or he hits a wall.
-							To solve this, I created a Enum which stored which direction Pac-Man would be moving. However, to make
-							movement more advanced I created a system to store the next keyboard input and move Pac-Man when he is
-							next allowed to do so. This also solved very smaller issues like Pac-Man being 32px x 32px and each
-							tile being 32px x 32px meaning a user would have to be pixel perfect to move between walls while with
-							this system it would move Pac-Man perfectly when a space is detected in the direction the person wishes to go.
-					</p>
-					<pre><code>enum Direction
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<p>Artificial Life was a project where we were tasked to simulate a fish school and how they would act and respond to predators. 
+								To do this I used steering methods to simulate the different behaviors of the fish and shark
+								<br>
+								Fish would utilise flocking and flee steering methods as in real life fish seek safety in numbers and they will flee when a shark 
+								is detected as they value their lives over staying as a school.
+								<br>
+								Sharks on the other hand will actively seek and pursue these fish as they need to eat them to survive.
+								<br>
+								We can see in the screenshot on the left that the fish are flocking together using Craig Reynolds rules of Alignment, Cohesion, and Separation. 
+							</p>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/AiAssignment/FishSchooling.png" alt="" /></a>
+						</div>
+					</div>	
+					<pre><code>void Boid::Flock(vecBoid nearBoids)
 {
-	LEFT,
-	RIGHT,
-	UP,
-	DOWN,
-	STOP
-};
+	// Only run if there are fish to flock with
+	if (nearBoids.size() > 0)
+	{
+		// alignment - allign the fish with the average direction of other fish
+		XMFLOAT3  alignment = calculateAlignmentVector(&nearBoids);
+		// Cohesion - move the fish to the average position of the fish
+		XMFLOAT3  cohesion = calculateCohesionVector(&nearBoids);
+		// Separation - separate the fish from one another
+		XMFLOAT3  separation = calculateSeparationVector(&nearBoids);
 
-Direction currentDirection;
-Direction nextDirection;</code></pre>
-						<pre><code>
-Pacman::Tick()
-{
-	MovementLogic();
-	.....
+		// Apply the weightings
+		alignment = multiplyFloat3(alignment, ALIGNMENT_WEIGHT);
+		cohesion = multiplyFloat3(cohesion, COHESION_WEIGHT);
+		separation = multiplyFloat3(separation, SEPARATION_WEIGHT);
+
+		// Apply the forces
+		m_direction = addFloat3(m_direction, alignment);
+		m_direction = addFloat3(m_direction, cohesion);
+		m_direction = addFloat3(m_direction, separation);
+	}
 }
-
-void Pacman::MovementLogic()
+					</code></pre>
+					<pre><code>void Boid::Seek(vecBoid nearBoids)
 {
-	//Moving right
-	if (keyboardState->IsKeyDown(Input::Keys::D))
+	// Only Seek if there are boids nearby
+	if (nearBoids.size() > 0)
 	{
-		nextDirection = RIGHT;
-	}
-	//Moving down
-	else if (keyboardState->IsKeyDown(Input::Keys::S))
-	{
-		nextDirection = DOWN;
-	}
-	//Moving left
-	else if (keyboardState->IsKeyDown(Input::Keys::A))
-	{
-		nextDirection = LEFT;
-	}
-	//Moving up
-	else if (keyboardState->IsKeyDown(Input::Keys::W))
-	{
-		nextDirection = UP;
-	}
-}						</code></pre>
-						<h3>Title Screen</h3>
-						
-						<div class="row">
-							<div class="col-6 col-12-mobile">
-								<p>Most games have a physical title screen where the user clicks play to
-									play the game allowing them to prepare for when the game starts as opposed
-									to running a game and having to be prepared as soon as all the loading has
-									completed to play the game. Because of this I decided to create a very simple
-									title screen which composes of two buttons, one for play and one for exit, and
-									a simple title. For the title screen I created a struct for the buttons and added
-									features like when the button has been hovered over and when it has been clicked to
-									allow me to perform logic to change screen or show a hovering icon over the button
-									as shown in the screenshot to the right.</p>
-							</div>
-							<div class="col-6 col-12-mobile">
-								<a class="image fit"><img src="images/Pacman/TitleScreen.png" alt="" /></a>
-							</div>
-						</div>
+		// Return Value
+		XMFLOAT3 desiredLocation = XMFLOAT3(0, 0, 0);
+		// Set values for the nearest fish to reduce errors
+		Boid* currentClosestFish = nearBoids[0];
+		float currentClosestFishDistance = SHARK_VISION_DISTANCE;
 
-						<h3>Walls</h3>
-						<div class="row">
-							<div class="col-6 col-12-mobile">
-								<a class="image fit"><img src="images/Pacman/OriginalWalls.png" alt="" /></a>
-							</div>
-							<div class="col-6 col-12-mobile">
-								<p>
-									Walls are a key part in Pac-Man as a wall limits where the player can go.
-									This ultimately can make the game harder or easier depending on how a map
-									is created using these walls. Each wall has a x, y, width, height and texture
-									value therefore I made a class to handle each wall as there would be multiple.
-									Due to the game being tile based and being loaded in from a text file each
-									wall will have the same width and height due to it being a tile map.
-									The way the walls originally looked when each wall had been loaded in did
-									not look very good (shown in image to left). This then led me to create a
-									function which would check the current walls adjacent tiles and change the
-									texture to create a much better-looking wall using connecting textures.
-								</p>
-							</div>
-						</div>
-						<pre><code>void MapLoader::FixWallTexture(Wall* wall, int i, int j)
-{
-	bool wallAbove = false,
-		wallBelow = false,
-		wallLeft = false,
-		wallRight = false;
-
-	if (mapArray[i - 1][j] == '#')
-	{
-		wallAbove = true;
-	}
-
-	if (mapArray[i + 1][j] == '#')
-	{
-		wallBelow = true;
-	}
-
-	if (j != 0)
-	{
-		if (mapArray[i][j - 1] == '#')
+		for (Boid* boid : nearBoids)
 		{
-			wallLeft = true;
-		}
-	}
+			XMFLOAT3 otherPos = *boid->getPosition();
 
-	if (j != MAPTILEDWIDTH-1)
-		{
-			if (mapArray[i][j + 1] == '#')
+			// Work out the distance between the boid
+			float distance = sqrt(((m_position.x - otherPos.x) * (m_position.x - otherPos.x)) 
+				+ ((m_position.y - otherPos.y) * (m_position.y - otherPos.y)));
+
+			// Compare it with the current closest boid
+			if (distance < currentClosestFishDistance)
 			{
-				wallRight = true;
+				// If its closer make it the new closes boid
+				currentClosestFish = boid;
+				currentClosestFishDistance = distance;
 			}
 		}
 
-	//Change the texture dependant on which walls are where
-	if (wallAbove && wallBelow && wallRight && wallLeft)
+		// Set the desired location to the closest boids postion
+		desiredLocation = subtractFloat3(*currentClosestFish->getPosition(), m_position);
+		// set the speed
+		desiredLocation = setVectorMagnitude(desiredLocation, SHARK_SPEED);
+		// Steering
+		desiredLocation = subtractFloat3(desiredLocation, this->m_direction);
+
+		// Apply the force
+		m_direction = addFloat3(m_direction, desiredLocation);
+	}
+}
+					</code></pre>
+				</div>
+			</section>
+
+			<section id="decisionTheory" class="generic2">
+				<div class="container">
+					<header>
+						<h2>Decision Theory</h2>
+					</header>
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<p>For Decision Theory we were tasked to create a chess ai which would make the best possible moves and prevent blundering. 
+								For example the AI must recognise that taking pieces may not be the best move if it costs them more valuable pieces.
+								<br>
+								The MiniMax algorithm has been utilised however throughout the project I researched into other algorithms and attempted to implement them
+								For example the NegaMax algorithm is more suitable in a chess ai as it cuts the codebase down a considerable amount. 
+								<br>
+								To also increase the performance of the algorithm and reduce the overall speed it takes to come to a decision 
+							</p>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/AiAssignment/Chess.png" alt="" /></a>
+						</div>
+					</div>	
+					<pre><code>int ChessPlayer::AlphaBeta(Board* board, int depth, bool maximisingPlayer, int alpha, int beta)
+{
+	if (depth == 0)
 	{
-		wall->setTexture("Textures/Wall/WallCross.png");
+		//cout << "+++++++++++++++++++++" << endl;
+		//PrintBoard(board);
+		return EvaluateBoard(board, m_colour);
 	}
 
-	else if (wallAbove && !wallBelow && wallRight && wallLeft)
+	if (maximisingPlayer)
 	{
-		wall->setTexture("Textures/Wall/WallDownT.png");
+		int maxEval = -100000000;
+		vecPieces vPieces;
+		unsigned int piecesAvailable = getAllLivePiecesOnTeamOnBoard(vPieces, m_colour, board);
+		// For every valid move
+		for (int currentPiece = 0; currentPiece < vPieces.size(); currentPiece++)
+		{
+			alpha = -100000000;
+			beta = 100000000;
+			vector<std::shared_ptr<Move>> avaliableMoves = getValidMovesForPiece(board, vPieces[currentPiece]);
+
+			for (int currentMove = 0; currentMove < avaliableMoves.size(); currentMove++)
+			{
+				// Apply move
+				int rowStart = avaliableMoves[currentMove].get()->getOriginPosition().first;
+				int colStart = avaliableMoves[currentMove].get()->getOriginPosition().second;
+				int rowFin = avaliableMoves[currentMove].get()->getDestinationPosition().first;
+				int colFin = avaliableMoves[currentMove].get()->getDestinationPosition().second;
+
+				std::shared_ptr<Piece> removedPiece;
+				if (board->getSquare(rowFin, colFin)->occupiedState())
+				{
+					removedPiece = board->getSquare(rowFin, colFin)->getOccupyingPiece();
+					board->getSquare(rowFin, colFin)->removeOccupyingPiece();
+				}
+				board->getSquare(rowStart, colStart)->removeOccupyingPiece();
+				board->getSquare(rowFin, colFin)->occupySquare(vPieces[currentPiece].piece);
+				
+				int currentEval = AlphaBeta(board, depth - 1, false, alpha, beta);
+				
+				// Revert move
+				board->getSquare(rowStart, colStart)->occupySquare(vPieces[currentPiece].piece);
+				board->getSquare(rowFin, colFin)->removeOccupyingPiece();
+				if (removedPiece != nullptr)
+				{
+					board->getSquare(rowFin, colFin)->occupySquare(removedPiece);
+				}
+				
+				//cout << "Piece: " << currentPiece << " Move: " << currentMove << " Score: " << currentEval << endl;
+
+				if (currentEval > maxEval)
+				{
+					//cout << "Piece: " << currentPiece << " Move: " << currentMove << endl;
+					maxEval = currentEval;
+					m_bestMove.move = avaliableMoves[currentMove];
+					m_bestMoves.clear();
+					m_bestMoves.push_back(avaliableMoves[currentMove]);
+				}
+
+				if (currentEval == maxEval)
+				{
+					m_bestMoves.push_back(avaliableMoves[currentMove]);
+				}
+
+				alpha = max(alpha, maxEval);
+				
+				if (maxEval > beta)
+				{
+					//cout << "Pruned" << endl;
+					break;
+				}
+			}
+		}
+		return maxEval;
 	}
-	... // More logic for each combination of adjacent walls
-}						</code></pre>
+	else
+	{
+		int minEval = 100000000;
+		vecPieces vPieces;
+		unsigned int piecesAvailable = getAllLivePiecesOnTeamOnBoard(vPieces, m_opposingColour, board);
+		// For every valid move
+		for (int currentPiece = 0; currentPiece < vPieces.size(); currentPiece++)
+		{
+			//cout << "Next piece" << endl;
+			vector<std::shared_ptr<Move>> avaliableMoves = getValidMovesForPiece(board, vPieces[currentPiece]);
+
+			for (int currentMove = 0; currentMove < avaliableMoves.size(); currentMove++)
+			{
+				// Apply move
+				int rowStart = avaliableMoves[currentMove].get()->getOriginPosition().first;
+				int colStart = avaliableMoves[currentMove].get()->getOriginPosition().second;
+				int rowFin = avaliableMoves[currentMove].get()->getDestinationPosition().first;
+				int colFin = avaliableMoves[currentMove].get()->getDestinationPosition().second;
+
+				std::shared_ptr<Piece> removedPiece;
+				if (board->getSquare(rowFin, colFin)->occupiedState())
+				{
+					removedPiece = board->getSquare(rowFin, colFin)->getOccupyingPiece();
+					board->getSquare(rowFin, colFin)->removeOccupyingPiece();
+				}
+				board->getSquare(rowStart, colStart)->removeOccupyingPiece();
+				board->getSquare(rowFin, colFin)->occupySquare(vPieces[currentPiece].piece);
+
+				int currentEval = AlphaBeta(board, depth - 1, false, alpha, beta);
+				
+				// Revert move
+				board->getSquare(rowStart, colStart)->occupySquare(vPieces[currentPiece].piece);
+				board->getSquare(rowFin, colFin)->removeOccupyingPiece();
+				if (removedPiece != nullptr)
+				{
+					board->getSquare(rowFin, colFin)->occupySquare(removedPiece);
+				}
+
+				if (currentEval < minEval)
+				{
+					//cout << "Piece: " << currentPiece << " Move: " << currentMove << endl;
+					minEval = currentEval;
+					//m_bestMove.move = avaliableMoves[currentMove];
+				}
+
+				beta = min(beta, minEval);
+
+				if (minEval < alpha)
+				{
+					//cout << "Pruned" << endl;
+					break;
+				}
+			}
+		}
+		return minEval;
+	}
+}
+					</code></pre>
 					
-						<div class="container">
-							<p>I am happy to go into further detail for this or any projects on my portfolio if needs be.</p>
-							<a href="https://github.com/ryangoldsmith/pacman" id="githubbutton" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
+				</div>
+			</section>
+
+			<section id="neuralNetwork" class="generic">
+				<div class="container">
+					<header>
+						<h2>Neural Network</h2>
+					</header>
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<p>For the neural network project our task was to implement a neural network into flappy bird to allow the birds to complete the game.
+								However a neural network alone will not allow for any eveolution of the birds and therefore a genetic algorithm has also been used in this application
+								to allow for the birds to evolve and become better than the last birds.
+								<br>
+								Since the Genetic Algorithm code is similar to the Evolutionary Algorithm Project I will only include Neural Network Code snippets in this section
+								<br>
+								I also made a lot of changes to the base game as it only allowed 1 bird and had logic for 1 bird, adding the ability to have more birds on the screen allows 
+								us to see the best birds per generation within real-time and made the application run quicker as whole generations are being played at a time. 
+								<br>
+								The input nodes took in the distance to the center of the gap between the pipes, the distance to the floor, and the distance to the next set of pipes, 
+								the neural network then processes this data and returns one output which is wether the bird should flap or not flap.
+							</p>
 						</div>
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/AiAssignment/FlappyBird.png" alt="" /></a>
+						</div>
+					</div>
+					<pre><code>bool AIController::NeuralNetworkLogic(Land* land, Bird* bird, Pipe* pipe)
+{
+	
+	// Input nodes
+	_neuralNetwork[0][0] = distanceToCentreOfPipeGap(pipe, bird);
+	_neuralNetwork[0][1] = distanceToFloor(land, bird);
+	_neuralNetwork[0][2] = distanceToNearestPipes(pipe, bird);
+
+	for (int i = 0; i < _neuralNetwork.size() - 1; i++)
+	{
+		for (int j = 0; j < _neuralNetwork[i + 1].size(); j++)
+		{
+			for (int k = 0; k < _neuralNetwork[i].size(); k++)
+			{
+				_neuralNetwork[i + 1][j] += _neuralNetwork[i][k] * _NNweights[i][k][j];
+			}
+
+			// activation - hyperbolic tangent
+			if (0 >= _neuralNetwork[i + 1][j])
+			{
+				_neuralNetwork[i + 1][j] = pow<float>(2, _neuralNetwork[i + 1][j]) - 1;
+			}
+			else
+			{
+				_neuralNetwork[i + 1][j] = 1 - pow<float>(2, -_neuralNetwork[i + 1][j]);
+			}
+		}
+	}
+
+	return 0 <= _neuralNetwork[2][0];
+}					</code></pre>	
+				
+					
+				</div>
+			</section>
+
+			<section id="evolutionaryAlgorithms" class="generic2">
+				<div class="container">
+					<header>
+						<h2>Evolutionary Algorithms</h2>
+					</header>
+					
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<p>For the Evolutionary Algorithms project our task was to implement a genetic algorithm into the application to achieve a score of 190+ in the game.
+								<br>
+								The Genetic Algorithms initial population is created through random values and then run, each different solution will have its own fitness and this is what is used 
+								to determine which solutions are chosen within the generation of the next population.
+								<br>
+								To add some variation to the algorithm to prevent the algorithm converging too quickly I implemented mutation. The mutation is a small chance and it mutates some 
+								of the genes of the chromosome. To show how the genetic algorithm is layed out within my code I created a diagram. One gene is a tower and the information a tower holds, 
+								and a chromosome is a list of these genes to create a final solution
+								
+
+							</p>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/AiAssignment/TowerDefense.png" alt="" /></a>
+							<a class="image fit"><img src="images/AiAssignment/GADiagram.png" alt="" /></a>
+						</div>
+					</div>
+
+					<pre><code>void Population::GenerateNextPopulation()
+{
+	// Firstly lets order the chromosomes based on their performance and give them a rank
+	SortChromosomes();
+	
+	m_lastGenerationBest = m_Chromosomes.back();
+
+	// Now we should give these chromosomes their ranks
+	// We are giving them ranks as Ranked selection gives stronger chromosomes than roulettwheel
+	for (int i = 0; i < m_Chromosomes.size(); i++)
+	{
+		m_Chromosomes[i]->SetRank(i + 1);
+	}
+
+	vector<Chromosome*> nextPopulation;
+	// Elitism - allows for a stronger next generation
+	Chromosome* bestChromosome = m_Chromosomes.back();
+	bestChromosome->SetCurrentGene(0);
+	bestChromosome->Print();
+
+	nextPopulation.push_back(bestChromosome);
+
+	// Now we've given them ranks lets do reproduction to create the next population
+	for (int i = 0; i < m_Chromosomes.size()-1; i += 2)
+	{
+		Chromosome* parent1 = RouletteWheelSelection();
+		Chromosome* parent2 = RouletteWheelSelection();
+
+		while (parent1 == parent2)
+		{
+			parent2 = RouletteWheelSelection();
+		}
+
+		Chromosome* offspring1 = Reproduce(parent1, parent2);
+		Chromosome* offspring2 = Reproduce(parent2, parent1);
+
+		// now that we have some children lets add some mutation
+		int mutationRoll1 = AIController::GenerateRandomNum(0, 100);
+		if (mutationRoll1 <= m_iMutationChance)
+		{
+			offspring1 = Mutate(offspring1);
+		}
+		nextPopulation.push_back(offspring1);
+
+		int mutationRoll2 = AIController::GenerateRandomNum(0, 100);
+		if (mutationRoll2 <= m_iMutationChance)
+		{
+			offspring2 = Mutate(offspring2);
+		}
+		if (1 != m_Chromosomes.size() -1)
+		{
+			nextPopulation.push_back(offspring2);
+		}
+	}
+
+	//Swap the populations over
+	m_Chromosomes.clear();
+	cout << nextPopulation.size() << endl;
+	for (int i = 0; i < nextPopulation.size(); i++)
+	{
+		m_Chromosomes.push_back(nextPopulation[i]);
+	}
+	m_iGenerationCount++;
+}
+
+Chromosome* Population::Reproduce(Chromosome* parent1, Chromosome* parent2)
+{
+	// time to create a offspring from 2 parents
+
+	Chromosome* offspring = new Chromosome();
+
+	for (int i = 0; i < parent1->GetGeneCount(); i += 2)
+	{
+		offspring->AddGene(parent1->GetGeneAt(i));
+		// Only add the gene if we have space
+		if (i != parent1->GetGeneCount() - 1)
+		{
+			offspring->AddGene(parent2->GetGeneAt(i+1));
+		}
+	}
+
+	return offspring;
+}
+
+Chromosome* Population::Mutate(Chromosome* c)
+{
+	Chromosome* returnChromosome = new Chromosome();
+	for (int i = 0; i < c->GetGeneCount(); i++)
+	{
+		returnChromosome->AddGene(c->GetGeneAt(i));
+	}
+
+	int mutationTypeRoll = AIController::GenerateRandomNum(1, 5);
+
+	if (mutationTypeRoll == 1)
+	{
+		cout << "Swap Mutation" << endl;
+		// Swap mutation
+		int randomIndex1 = AIController::GenerateRandomNum(0, c->GetGeneCount() - 1);
+		int randomIndex2 = AIController::GenerateRandomNum(0, c->GetGeneCount() - 1);
+
+		// make sure indexs are different
+		while (randomIndex1 == randomIndex2)
+		{
+			randomIndex2 = AIController::GenerateRandomNum(0, c->GetGeneCount() - 1);
+		}
+
+		cout << randomIndex1 << " " << randomIndex2 << endl;
+		Gene temp;
+		temp = returnChromosome->GetGeneAt(randomIndex1);
+		returnChromosome->SetGeneAt(randomIndex1, returnChromosome->GetGeneAt(randomIndex2));
+		returnChromosome->SetGeneAt(randomIndex2, temp);
+
+		return returnChromosome;
+	}
+	else if (mutationTypeRoll == 2)
+	{
+		cout << "Reverse Mutation" << endl;
+		// Reverse Mutation
+		int randomIndex1 = AIController::GenerateRandomNum(0, c->GetGeneCount() - 1);
+		int randomIndex2 = AIController::GenerateRandomNum(0, c->GetGeneCount() - 1);
+		
+		// make sure indexs are different
+		while (randomIndex1 == randomIndex2)
+		{
+			randomIndex2 = AIController::GenerateRandomNum(0, c->GetGeneCount() - 1);
+		}
+
+		// make sure random number 1 is smaller
+		if (randomIndex2 < randomIndex1)
+		{
+			int temp = randomIndex1;
+			randomIndex1 = randomIndex2;
+			randomIndex2 = temp;
+		}
+
+		// Get section to flip
+		vector<Gene> selectedGenes;
+		for (int i = randomIndex1; i < randomIndex2; i++)
+		{
+			selectedGenes.push_back(returnChromosome->GetGeneAt(i));
+		}
+
+		// Perform flip
+		int n = selectedGenes.size() - 1;
+		for (int i = randomIndex1; i < randomIndex2; i++)
+		{
+			returnChromosome->SetGeneAt(i, selectedGenes[n]);
+			n--;
+		}
+
+		return returnChromosome;
+	}
+	else
+	{
+		cout << "Reverse Random" << endl;
+		// Random Mutation
+		int randomIndex1 = AIController::GenerateRandomNum(0, c->GetGeneCount() - 1);
+		int randomIndex2 = AIController::GenerateRandomNum(0, c->GetGeneCount() - 1);
+		cout << randomIndex1 << endl;
+		cout << randomIndex2 << endl;
+
+		// make sure indexs are different
+		while (randomIndex1 == randomIndex2)
+		{
+			randomIndex2 = AIController::GenerateRandomNum(0, c->GetGeneCount() - 1);
+		}
+
+		Gene tp;
+		tp.x = AIController::GenerateRandomNum(0, 25);
+		tp.y = AIController::GenerateRandomNum(0, 17);
+		tp.towerType = (TowerType)(AIController::GenerateRandomNum(1, 3));
+
+		// Add the gene to the Chromosome
+		returnChromosome->SetGeneAt(randomIndex1, tp);
+
+		tp.x = AIController::GenerateRandomNum(0, 25);
+		tp.y = AIController::GenerateRandomNum(0, 17);
+		tp.towerType = (TowerType)(AIController::GenerateRandomNum(1, 3));
+		returnChromosome->SetGeneAt(randomIndex2, tp);
+		
+		return returnChromosome;
+	}
+}
+
+Chromosome* Population::RankSelection()
+{
+	Chromosome* selectedChromosome = new Chromosome();
+	int maxWheelSize = 0;
+	for (int i = 0; i < m_Chromosomes.size(); i++)
+	{
+		maxWheelSize += m_Chromosomes[i]->GetRank();
+	}
+
+	int selectedNum = AIController::GenerateRandomNum(1, maxWheelSize-1);
+	int wheelTotal = 0;
+	for (int i = 0; i < m_Chromosomes.size(); i++)
+	{
+		wheelTotal += m_Chromosomes[i]->GetRank();
+
+		if (wheelTotal > selectedNum)
+		{
+			selectedChromosome = m_Chromosomes[i];
+			break;
+		}
+	}
+
+	return selectedChromosome;
+}					</code></pre>
+				
+					<div class="container">
+						<p>I am happy to go into further detail for this or any projects on my portfolio if needs be. 
+							I'm unsure of the rights to the games we were given to work on therefore I have not made a public github repo at this time, 
+							however if needs be i am more than happy to distribute just my code for the algorithms</p>
 					</div>
 				</div>
 			</section>
 		</div>
 
+
+		
 		<!-- Footer 
 			<div id="footer">
 
