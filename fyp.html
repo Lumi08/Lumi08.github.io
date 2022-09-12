@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Pac-Man - Ryan Goldsmith</title>
+		<title>Final Year Project - Ryan Goldsmith</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -29,10 +29,14 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html#portfolio" id="back-link"><span class="icon solid fa-arrow-left">Back to Portfolio</span></a></li>
-						<li><a href="#top" id="top-link"><span class="icon solid fa-bug">Pac-Man</span></a></li>
+						<li><a href="#top" id="top-link"><span class="icon solid fa-bug">Final Year Project</span></a></li>
 						<li><a href="#description" id="portfolio-link"><span class="icon solid fa-check">Project Overview</span></a></li>
-						<li><a href="#codesnippets" id="about-link"><span class="icon solid fa-code">Code Snippets</span></a></li>
-						<li><a href="#githubbutton" id="github-link"><span class="icon brands fa-github">GitHub Repository</span></a></li>
+						<li><a href="#ui" id="portfolio-link"><span class="icon solid fa-table">UI</span></a></li>
+						<li><a href="#geneticAlgorithm" id="portfolio-link"><span class="icon solid fa-child">Genetic Algorithm</span></a></li>
+						<li><a href="#antColony" id="portfolio-link"><span class="icon solid fa-bug">Ant Colony Optimisation</span></a></li>
+						<li><a href="#results" id="portfolio-link"><span class="icon solid fa-clipboard">Results</span></a></li>
+						<li><a href="#optimisation" id="portfolio-link"><span class="icon solid fa-clock">Optimisation</span></a></li>
+						<li><a href="#githubbutton" id="portfolio-link"><span class="icon brands fa-github">Github Repository</span></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -58,23 +62,24 @@
 
 					<div class="row">
 						<div class="col-6 col-12-mobile">
-							<a class="image fit"><img src="images/Pacman/ProjectThumbnail.png" alt="" /></a>
+							<a class="image fit"><img src="images/FYP/Thumbnail.png" alt="" /></a>
 							<br>
 						</div>
 								
 						<div class="col-6 col-12-mobile">
 							<header>
-								<h3>Pac-Man</h3>
+								<h3>Final Year Project</h3>
 							</header>
-							<p>> Recreation of Pac-Man using the S2D libraries - Provided by Staffordshire University.<br>
-								> My Hand-in for Fundamentals of Game and Graphical Systems Assignment
+							<p>
+								<ul>
+									<li>> Comparison and Optimisation of Natural Computation Techniques to Solve the Travelling Salesman Problem</li>
+									<li>> Created using WPF for the UI elements</li>
+								</ul>
 							</p>
-							<br>
-							<br>
 							<a href="#description" class="button scrolly">Learn More</a>
 							<br>
 							<br>
-							<a href="https://github.com/ryangoldsmith/pacman" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
+							<a href="https://github.com/ryangoldsmith/Final-Year-Project" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
 						</div>
 					</div>
 				</div>
@@ -85,169 +90,264 @@
 				<div class="container">
 					<h3>Project Overview</h3>
 					<p>
-						Pac-Man was my level 4 Fundamentals of Game and Graphical System Development project for semester 1.
-						Our task was to create a very simple version of Pac-Man using the S2D libraries provided to
-						us by Staffordshire University. To pass the module the bare minimum was to have a moving Pac-Man
-						with simple animations which could move around an empty space collecting munchies while avoiding ghosts.
-						However, to achieve higher marks you must add further features into the game to represent the original Pac-Man.
+						For my final year project i decided to do further research into the travelling salesman problem and how natural computation could be used to solve the problem.
+						Due to the time constraints of the project I was able to implement a Genetic Algorithm and the Ant Colony Optimisation Algorithm, using these algorithms I was able to generate results 
+						and compare them against each other. After presenting the results to my lecturers within a viva presentation one of the lecturers with background knowledge of the algorithms 
+						said that my results are exactly as they expected. 
+						<br>
+						
 					</p>
-					<h3>Additional Features - Achieve Higher Marks</h3>
+					<h3>Features</h3>
 					<ul>
-						<li>> More Advanced Pac-Man Movement</li>
-						<li>> Title Screen</li>
-						<li>> Walls</li>
-						<li>> Collisions with Walls</li>
-						<li>> Connected Wall Textures</li>
+						<li>> Functioning UI</li>
+						<li>> Entering Graphs directly into application</li>
+						<li>> Importing Graphs</li>
+						<li>> Exporting Graphs</li>
+						<li>> Visual Feedback for graphs and solutions</li>
+						<li>> Tracking Algorithms Progress</li>
 					</ul>
 				</div>
 			</section>
 
 		<!-- Code Snippets -->
-			<section id="codesnippets" class="generic">
+			<section id="ui" class="generic">
 				<div class="container">
 					<header>
-						<h2>Code Snippets / Screenshots</h2>
+						<h2>UI</h2>
 					</header>
-					<h3>Movement</h3>
-					<p>Pac-Man is able to move via keyboard inputs using WASD, a small issue arose early into the project
-							where Pac-Man would stutter while moving as the game would have to check if the key was down every tick.
-							However, Pac-Man is supposed to move continuously in one direction until told otherwise or he hits a wall.
-							To solve this, I created a Enum which stored which direction Pac-Man would be moving. However, to make
-							movement more advanced I created a system to store the next keyboard input and move Pac-Man when he is
-							next allowed to do so. This also solved very smaller issues like Pac-Man being 32px x 32px and each
-							tile being 32px x 32px meaning a user would have to be pixel perfect to move between walls while with
-							this system it would move Pac-Man perfectly when a space is detected in the direction the person wishes to go.
-					</p>
-					<pre><code>enum Direction
-{
-	LEFT,
-	RIGHT,
-	UP,
-	DOWN,
-	STOP
-};
-
-Direction currentDirection;
-Direction nextDirection;</code></pre>
-						<pre><code>
-Pacman::Tick()
-{
-	MovementLogic();
-	.....
-}
-
-void Pacman::MovementLogic()
-{
-	//Moving right
-	if (keyboardState->IsKeyDown(Input::Keys::D))
-	{
-		nextDirection = RIGHT;
-	}
-	//Moving down
-	else if (keyboardState->IsKeyDown(Input::Keys::S))
-	{
-		nextDirection = DOWN;
-	}
-	//Moving left
-	else if (keyboardState->IsKeyDown(Input::Keys::A))
-	{
-		nextDirection = LEFT;
-	}
-	//Moving up
-	else if (keyboardState->IsKeyDown(Input::Keys::W))
-	{
-		nextDirection = UP;
-	}
-}						</code></pre>
-						<h3>Title Screen</h3>
-						
-						<div class="row">
-							<div class="col-6 col-12-mobile">
-								<p>Most games have a physical title screen where the user clicks play to
-									play the game allowing them to prepare for when the game starts as opposed
-									to running a game and having to be prepared as soon as all the loading has
-									completed to play the game. Because of this I decided to create a very simple
-									title screen which composes of two buttons, one for play and one for exit, and
-									a simple title. For the title screen I created a struct for the buttons and added
-									features like when the button has been hovered over and when it has been clicked to
-									allow me to perform logic to change screen or show a hovering icon over the button
-									as shown in the screenshot to the right.</p>
-							</div>
-							<div class="col-6 col-12-mobile">
-								<a class="image fit"><img src="images/Pacman/TitleScreen.png" alt="" /></a>
-							</div>
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<p>
+								The Ui of the project is made completely using WPF, I chose WPF as I have experience with it and it is a simple solution to making an effective UI. 
+								As the projects outcome is to compare results the UI is an added benefit, and is very helpful when debugging. It can be argued that the application 
+								could just be a console application returning results however I wanted to create a more interactive application with visual feedback.
+								
+							</p>
 						</div>
-
-						<h3>Walls</h3>
-						<div class="row">
-							<div class="col-6 col-12-mobile">
-								<a class="image fit"><img src="images/Pacman/OriginalWalls.png" alt="" /></a>
-							</div>
-							<div class="col-6 col-12-mobile">
-								<p>
-									Walls are a key part in Pac-Man as a wall limits where the player can go.
-									This ultimately can make the game harder or easier depending on how a map
-									is created using these walls. Each wall has a x, y, width, height and texture
-									value therefore I made a class to handle each wall as there would be multiple.
-									Due to the game being tile based and being loaded in from a text file each
-									wall will have the same width and height due to it being a tile map.
-									The way the walls originally looked when each wall had been loaded in did
-									not look very good (shown in image to left). This then led me to create a
-									function which would check the current walls adjacent tiles and change the
-									texture to create a much better-looking wall using connecting textures.
-								</p>
-							</div>
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/FYP/WPFUI.png" alt="" /></a>
 						</div>
-						<pre><code>void MapLoader::FixWallTexture(Wall* wall, int i, int j)
-{
-	bool wallAbove = false,
-		wallBelow = false,
-		wallLeft = false,
-		wallRight = false;
-
-	if (mapArray[i - 1][j] == '#')
-	{
-		wallAbove = true;
-	}
-
-	if (mapArray[i + 1][j] == '#')
-	{
-		wallBelow = true;
-	}
-
-	if (j != 0)
-	{
-		if (mapArray[i][j - 1] == '#')
-		{
-			wallLeft = true;
-		}
-	}
-
-	if (j != MAPTILEDWIDTH-1)
-		{
-			if (mapArray[i][j + 1] == '#')
-			{
-				wallRight = true;
-			}
-		}
-
-	//Change the texture dependant on which walls are where
-	if (wallAbove && wallBelow && wallRight && wallLeft)
-	{
-		wall->setTexture("Textures/Wall/WallCross.png");
-	}
-
-	else if (wallAbove && !wallBelow && wallRight && wallLeft)
-	{
-		wall->setTexture("Textures/Wall/WallDownT.png");
-	}
-	... // More logic for each combination of adjacent walls
-}						</code></pre>
+					</div>
 					
-						<div class="container">
-							<p>I am happy to go into further detail for this or any projects on my portfolio if needs be.</p>
-							<a href="https://github.com/ryangoldsmith/pacman" id="githubbutton" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/FYP/ButtonCode.png" alt="" /></a>
 						</div>
+						<div class="col-6 col-12-mobile">
+							<p>
+								The benefit of WPF is I can easily drag and drop a element onto the application, give it a name and the appropriate data it needs, then use it within the code 
+								either giving a button a click event or taking the data from a text box.
+								
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="geneticAlgorithm" class="generic2">
+				<div class="container">
+					<header>
+						<h2>Genetic Algorithm</h2>
+					</header>
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<p>
+								To apply a genetic algorithm to the travelling salesman problem there are a lot of modifications that need to be made. To begin with we need to 
+								set up how the structure of the algorithm would be, which parts of the TSP would be a chromosome for example. I have created a diagram to show this.  
+							</p>
+							<p>
+								If a gene is a valid graph node, then a chromosome can be a valid solution as the order of the genes is the order the salesman will travel.
+							</p>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/FYP/gaDiagram.png" alt="" /></a>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/FYP/ReproductionDiagram.png" alt="" /></a>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<p>
+								<br>
+								The main problem when using a genetic algorithm is how reproduction and mutation will work, this is because a valid solution can only travel to 
+								each node once and during typical genetic algorithm reproduction we may travel to some nodes many times and ignore other nodes.
+							</p>
+							<p>
+								To solve this I utilise Partially Mapped Crossover Operation, this crossover method allows the chromosomes to produce child solutions which are valid 
+								solutions where each node is visited only once. The diagram to the left shows the steps.
+								<ol>
+									<li>> Step 1: Parents are Selected*</li>
+									<li>> Step 2: Offspring take parent 1s middle section</li>
+									<li>> Step 3: Implement parent 2s points which are not duplicates</li>
+									<li>> Step 4: Fill in missing genes with remaining nodes</li>
+								</ol>
+								*The selection method used is ranked selection as this promotes stronger chromosomes to be selected within reproduction.
+							</p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<br>
+							<h3>Mutation</h3>
+							<p>
+								For mutation we need to create methods which do not create solutions which are not valid, therefore I created 2 methods:
+							</p>
+							<p>
+								> Swap Mutation - 2 genes are picked at random and their positions are "swapped".
+							</p>
+							<p>
+								> Reverse Mutation - 2 Points are selected within the chromosome and the genes between these 2 points are reversed or "flipped".
+							</p>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/FYP/ReverseMutation.png" alt="" /></a>
+							<a class="image fit"><img src="images/FYP/SwapMutation.png" alt="" /></a>
+						</div>
+					</div>
+					
+					
+				</div>
+			</section>
+
+			<section id="antColony" class="generic">
+				<div class="container">
+					<header>
+						<h2>Ant Colony Optimisation</h2>
+					</header>
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<h3>Ants</h3>
+							<p>
+								There are a few key differences with Ant Colony Optimisation algorithms and the way it has been implemented within my project these are as follows:
+							</p>
+							<p>
+								> Artificial Ants - The ants with9in my project have memory and need to have memory as we do not want them to travel to nodes they have already travelled too. 
+								They are also more aware of their surroundings, meaning they know the distance to the next nodes. 
+							</p>
+							<p>
+								> No "main" Nest - Meaning when the ants are created within the algorithm they are scattered between the nodes, meaning each node should have a equal 
+								amount of ants at each of them for when the algorithm starts 
+							</p>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<pre><code>public void Initialise(List<TSPGraphNode> nodes)
+{
+	originalMap = new List<.TSPGraphNode>(nodes);
+	paths.Clear();
+	antColony.Clear();
+	bestAntPerIteration.Clear();
+	lastBestDistance = double.MaxValue;
+	iterationsSinceBestChange = 0;
+	totalIterations = 0;
+
+	for(int i = 0; i < nodes.Count; i++)
+	{
+		
+		for(int j = 0; j < antPerNode; j++)
+		{
+			Ant ant = new Ant(this);
+			ant.currentTour.Add(nodes[i]);
+			antColony.Add(ant);
+		}
+	}
+}
+							</code></pre>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<pre><code>public void AddPheromone()
+{
+	double totalDistance = GetTotalDistance();
+
+	Path pathToDecay = null;
+	for (int i = 0; i < currentTour.Count - 1; i++)
+	{
+
+		pathToDecay = manager.GetPath(currentTour[i], currentTour[i + 1]);
+
+		pathToDecay.pheromoneLevel += manager.pheromoneConstant / totalDistance;
+	}
+
+	pathToDecay = manager.GetPath(currentTour.Last(), currentTour.First());
+	pathToDecay.pheromoneLevel += manager.pheromoneConstant / totalDistance;
+}
+							</code></pre>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<h3>Pheromones</h3>
+							<p>
+								The way that ants communicate to each other is through the environment by leaving pheromones, within this application the ants drop a level of pheromones
+								on a "Path" where a path is two nodes. These paths are then analysed when the ant comes to choose which node to travel to, the more pheromones on a path 
+								the more influence a ant feels to take that path. 
+							</p>
+							<p>
+								To incorporate pheromone decay I utilised a constant value to multiply the pheromone level by, also as the application is running per iteration we have no 
+								"Time" therefore we need to add pheromones dependant on the distance the ant has travelled as opposed to the time it took.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="results" class="generic2">
+				<div class="container">
+					<header>
+						<h2>Results</h2>
+					</header>
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<p>
+								To generate results I utilised the importing feature to allow for the same graph to be tested against the different algorithms. 
+								The results can be seen in the table to the left and the graphs below. 
+							</p>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/FYP/ResultsTable.png" alt="" /></a>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/FYP/DistanceGraph.png" alt="" /></a>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/FYP/TimeGraph.png" alt="" /></a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="optimisation" class="generic">
+				<div class="container">
+					<header>
+						<h2>Optimisation</h2>
+					</header>
+					<div class="row">
+						<div class="col-6 col-12-mobile">
+							<p>
+								Due to the time constraints of the project i only attempted to optimise one of the programs, I did 2 attempts of optimising the genetic algorithm.
+							</p>
+							<p>
+								First optimisation I tried implementing a dynamic population size for the genetic algorithm however this lead to inaccurate final results and was deemed a failure.
+							</p>
+							<p>
+								The second optimisation I tried was to add elitism to the algorithm, where the best chromosomes of the previous population are placed into the next population, 
+								this ultimately lowered the time it took to get to a final result as adding elitism is encouraging a much stronger population.
+							</p>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<a class="image fit"><img src="images/FYP/OptimisationGraph.png" alt="" /></a>
+						</div>
+					</div>
+
+					<div class="container">
+						<p>I am happy to go into further detail for this or any projects on my portfolio if needs be. I am also happy to distribute the report/write-up for the project if needs be.</p>
+						<a href="https://github.com/ryangoldsmith/Final-Year-Project" id="githubbutton" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
 					</div>
 				</div>
 			</section>
@@ -255,6 +355,12 @@ void Pacman::MovementLogic()
 
 		<!-- Footer 
 			<div id="footer">
+
+
+				<div class="container">
+						<p>I am happy to go into further detail for this or any projects on my portfolio if needs be.</p>
+						<a href="https://github.com/ryangoldsmith/Final-Year-Project" id="githubbutton" class="button"><span class="icon brands fa-github"> </span>View On Github</a>
+					</div>
 
 				
 					<ul class="copyright">
