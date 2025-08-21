@@ -35,15 +35,7 @@
 				</nav>
 			</div>
 
-			<div class="bottom">
-				<!-- Social Icons -->
-				<ul class="icons">
-					<li><a href="https://twitter.com/RGoldsmith429" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="https://github.com/ryangoldsmith" class="icon brands fa-github"><span class="label">Github</span></a></li>
-					<li><a href="https://uk.linkedin.com/in/ryan-goldsmith-5b7974194" class="icon brands fa-linkedin"><span class="label">Linked-in</span></a></li>
-				</ul>
-
-			</div>
+			<div id="socials-placeholder"></div>
 
 		</div>
 
@@ -681,5 +673,16 @@ Chromosome* Population::RankSelection()
 				})
 				.catch(err => console.error('Error loading profile:', err));
 		</script>
+
+		<!-- Grab socials from socials.html -->	
+		<script>
+			fetch('/includes/socials.html')
+				.then(response => response.text())
+				.then(html => {
+					document.getElementById('socials-placeholder').innerHTML = html;
+				})
+				.catch(err => console.error('Error loading socials:', err));
+		</script>
+
 	</body>
 </html>
