@@ -19,11 +19,7 @@
 			<div class="top">
 
 				<!-- Logo -->
-				<div id="logo">
-					<span class="image avatar48"><img src="../../assets/images/avatar.jpg" alt="" /></span>
-					<h1 id="title">Ryan Goldsmith</h1>
-					<p>BSc(Hons) Computer Games Programming</p>
-				</div>
+				<div id="profile-placeholder"></div>
 
 				<!-- Nav -->
 				<nav id="nav">
@@ -145,13 +141,23 @@
 		-->
 
 		<!-- Scripts -->
-			<script src="../../assets/js/jquery.min.js"></script>
-			<script src="../../assets/js/jquery.scrolly.min.js"></script>
-			<script src="../../assets/js/jquery.scrollex.min.js"></script>
-			<script src="../../assets/js/browser.min.js"></script>
-			<script src="../../assets/js/breakpoints.min.js"></script>
-			<script src="../../assets/js/util.js"></script>
-			<script src="../../assets/js/main.js"></script>
+		<script src="../../assets/js/jquery.min.js"></script>
+		<script src="../../assets/js/jquery.scrolly.min.js"></script>
+		<script src="../../assets/js/jquery.scrollex.min.js"></script>
+		<script src="../../assets/js/browser.min.js"></script>
+		<script src="../../assets/js/breakpoints.min.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../assets/js/main.js"></script>
+
+		<!-- Grab profile from profile.html -->
+		<script>
+			fetch('/includes/profile.html')
+				.then(response => response.text())
+				.then(html => {
+					document.getElementById('profile-placeholder').innerHTML = html;
+				})
+				.catch(err => console.error('Error loading profile:', err));
+		</script>
 
 	</body>
 </html>
