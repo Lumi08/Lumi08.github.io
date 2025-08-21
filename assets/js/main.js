@@ -53,44 +53,33 @@
 			})
 			.each(function() {
 
-				var	$this = $(this),
-					id = $this.attr('href'),
-					$section = $(id);
+    			var $this = $(this),
+        		id = $this.attr('href');
 
-				// No section for this link? Bail.
-					if ($section.length < 1)
-						return;
+    			// Skip if not an internal anchor
+				if (!id.startsWith('#'))
+					return;
 
-				// Scrollex.
-					$section.scrollex({
-						mode: 'middle',
-						top: '-10vh',
-						bottom: '-10vh',
-						initialize: function() {
+				var $section = $(id);
 
-							// Deactivate section.
-								$section.addClass('inactive');
+				if ($section.length < 1)
+					return;
 
-						},
-						enter: function() {
-
-							// Activate section.
-								$section.removeClass('inactive');
-
-							// No locked links? Deactivate all links and activate this section's one.
-								if ($nav_a.filter('.active-locked').length == 0) {
-
-									$nav_a.removeClass('active');
-									$this.addClass('active');
-
-								}
-
-							// Otherwise, if this section's link is the one that's locked, unlock it.
-								else if ($this.hasClass('active-locked'))
-									$this.removeClass('active-locked');
-
+				$section.scrollex({
+					mode: 'middle',
+					top: '-10vh',
+					bottom: '-10vh',
+					initialize: function() { $section.addClass('inactive'); },
+					enter: function() {
+						$section.removeClass('inactive');
+						if ($nav_a.filter('.active-locked').length == 0) {
+							$nav_a.removeClass('active');
+							$this.addClass('active');
+						} else if ($this.hasClass('active-locked')) {
+							$this.removeClass('active-locked');
 						}
-					});
+					}
+				});
 
 			});
 
